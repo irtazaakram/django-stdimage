@@ -23,7 +23,11 @@ INSTALLED_APPS = (
     "tests",
 )
 
-DEFAULT_FILE_STORAGE = "tests.storage.MyFileSystemStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "tests.storage.MyFileSystemStorage",
+    },
+}
 
 TEMPLATES = [
     {

@@ -79,6 +79,8 @@ jobs:
         django-version:
           - "3.2"
           - "4.0"
+          - "4.1"
+          - "4.2"
         extra:
           - "test"
           - "test,progressbar"
