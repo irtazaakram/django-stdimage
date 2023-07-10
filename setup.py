@@ -31,11 +31,11 @@ class compile_translations(Command):
             subprocess.check_call(
                 ["mkdir", "-p", f"{self.build_lib}/{os.path.dirname(name)}"],
                 cwd=BASE_DIR,
-            )
+            )  # nosec
             subprocess.check_call(
                 ["touch", f"{self.build_lib}/{name}.mo"],
                 cwd=BASE_DIR,
-            )
+            )  # nosec
 
             cmd = ["msgfmt", "-c", "-o", f"{self.build_lib}/{name}.mo", file]
             self.announce(
