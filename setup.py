@@ -27,11 +27,13 @@ class compile_translations(Command):
         for file in glob.glob(pattern):
             name, ext = os.path.splitext(file)
 
-            # Create the directory
+            # Create the directory since we need this to create .mo files with msgfmt command
             subprocess.check_call(
                 ["mkdir", "-p", f"{self.build_lib}/{os.path.dirname(name)}"],
                 cwd=BASE_DIR,
             )  # nosec
+
+            # Create the file
             subprocess.check_call(
                 ["touch", f"{self.build_lib}/{name}.mo"],
                 cwd=BASE_DIR,
